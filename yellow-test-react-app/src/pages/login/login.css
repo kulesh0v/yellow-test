@@ -1,0 +1,26 @@
+.login-modal {
+  width: 503px;
+  height: 379px;
+  margin: 207px 468px 0 469px;
+  padding: 77px 171px 36px 172px;
+  border-radius: 44px;
+  background-color: #e990f9;
+}
+
+.login-button {
+  width: 151px;
+  height: 60px;
+  margin: 56px 5px 0 4px;
+  padding: 20px 34px 19px;
+  border-radius: 36px;
+  border: solid 3px var(--white-two);
+  background-color: 0;
+}
+
+.bear-face {
+  width: 160px;
+  height: 150px;
+  margin: 0 0 56px;
+  padding: 0.1px 0.2px 0px 0.2px;
+  object-fit: contain;
+}
