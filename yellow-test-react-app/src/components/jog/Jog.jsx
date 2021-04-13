@@ -1,7 +1,4 @@
-import React from 'react';
-import ReactDom from 'react-dom';
 import PropTypes from 'prop-types'
-import jogIcon from './jog-icon.svg'
 import './Jog.css'
 import dateFormat from 'dateformat';
 
@@ -14,7 +11,7 @@ export default function Jog({ date, distance, time }) {
 
   return (
     <div className='jog-card'>
-      <img src={jogIcon} alt='jog icon' />
+      <img src='images/jog-icon.svg' alt='jog icon' />
       <div className='jog-data-list'>
         <div className='jog-date jog-data'>
           <span className='jog-data-value'>{formatedDate}</span>

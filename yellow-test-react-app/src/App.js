@@ -1,5 +1,4 @@
-import { React, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { useState } from 'react';
 import Header from './components/header/Header';
 import LoginPage from './pages/login/LoginPage';
 import JogsPage from './pages/jogs/JogsPage';
@@ -17,12 +16,11 @@ export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('jog-tracker-token'));
   let history = useHistory();
 
-  const onLogin = () => {
-    auth().then(res => {
-      localStorage.setItem('jog-tracker-token', res.data.response.access_token);
-      setIsAuthenticated(true);
-      history.push(routes.jogs);
-    });
+  const onLogin = async () => {
+    const res = await auth();
+    localStorage.setItem('jog-tracker-token', res.data.response.access_token);
+    setIsAuthenticated(true);
+    history.push(routes.jogs);
   }
 
   return (

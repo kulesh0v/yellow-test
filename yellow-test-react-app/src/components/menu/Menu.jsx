@@ -1,6 +1,4 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import routes from "../../routes";
 import './Menu.css';
 import PropTypes from 'prop-types';

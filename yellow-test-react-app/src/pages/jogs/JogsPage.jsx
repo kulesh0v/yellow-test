@@ -1,6 +1,4 @@
-import { React, useEffect, useState } from 'react';
-import ReactDom from 'react-dom';
-import sadEmoticon from './sad-rounded-square-emoticon.svg';
+import { useEffect, useState } from 'react';
 import { getJogs } from '../../api';
 import Jog from '../../components/jog/Jog';
 
@@ -8,12 +6,14 @@ export default function JogsPage() {
   const [isLoaded, setIsLoaded] = useState(true);
   const [jogs, setJogs] = useState();
 
+  const loadJogs = async () => {
+    const res = await getJogs();
+    setJogs(res.data.response.jogs)
+    setIsLoaded(false);
+  }
+
   useEffect(() => {
-    getJogs().then((res) => {
-      console.log(res.data.response.jogs);
-      setJogs(res.data.response.jogs)
-      setIsLoaded(false);
-    })
+    loadJogs()
   }, []);
 
   if (isLoaded) {
@@ -23,7 +23,7 @@ export default function JogsPage() {
   if (!jogs && !jogs.length) {
     return (
       <div>
-        <img src={sadEmoticon}></img>
+        <img src='iamges/sad-rounded-square-emoticon.svg' alt='sad emoticon'></img>
         <span>Nothing is there</span>
         <button>Create your jog first</button>
       </div>
