@@ -11,3 +11,14 @@ export function auth() {
     data: 'uuid=hello',
   });
 }
+
+export function getJogs() {
+  return axios({
+    method: 'get',
+    url: 'https://jogtracker.herokuapp.com/api/v1/data/sync',
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('jog-tracker-token')}`,
+    }
+  })
+}

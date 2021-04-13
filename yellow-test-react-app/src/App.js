@@ -19,7 +19,7 @@ export default function App() {
 
   const onLogin = () => {
     auth().then(res => {
-      localStorage.setItem('jog-tracker-token', res.data.access_token);
+      localStorage.setItem('jog-tracker-token', res.data.response.access_token);
       setIsAuthenticated(true);
       history.push(routes.jogs);
     });

@@ -1,0 +1,29 @@
+.jog-card {
+  margin-bottom: 88px;
+  display: flex;
+}
+
+.jog-data-list {
+  margin-left: 46px;
+  display: inline-block;
+}
+
+.jog-data {
+  margin-bottom: 12px;
+}
+
+.jog-data-label {
+  font-family: SFUIText-Medium;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.jog-data-value {
+  color: #717171
+}
+
+.jog-date {
+  margin-top: -8px;
+  margin-bottom: 9px;
+}
