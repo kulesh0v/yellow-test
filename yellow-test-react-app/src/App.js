@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import LoginPage from './pages/login/LoginPage';
 import JogsPage from './pages/jogs/JogsPage';
+import InfoPage from './pages/info/InfoPage';
 
 export default function App() {
   return (
@@ -22,6 +23,11 @@ export default function App() {
       <Switch>
         <Route path="/jogs">
           <JogsPage />
+        </Route>
+      </Switch>
+      <Switch>
+        <Route path="/info">
+          <InfoPage />
         </Route>
       </Switch>
     </Router>
