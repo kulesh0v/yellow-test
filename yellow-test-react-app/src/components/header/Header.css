@@ -1,0 +1,13 @@
+.header {
+  width: 1440px;
+  margin: 0 0 207px;
+  padding: 30px 1256px 30px 37px;
+  background-color: #7ed321;
+}
+
+.logo {
+  width: 147px;
+  height: 56px;
+  padding: 0 1.3px 0 0;
+  object-fit: contain;
+}
