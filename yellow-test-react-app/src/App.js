@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import LoginPage from './pages/login/LoginPage';
+import JogsPage from './pages/jogs/JogsPage';
 
 export default function App() {
   return (
@@ -16,6 +17,11 @@ export default function App() {
       <Switch>
         <Route path="/login">
           <LoginPage />
+        </Route>
+      </Switch>
+      <Switch>
+        <Route path="/jogs">
+          <JogsPage />
         </Route>
       </Switch>
     </Router>
