@@ -2,7 +2,7 @@
   display: inline-block;
   margin: auto;
   margin-right: 118px;
-  font-family: SFUIText
+  font-family: SFUIText-Bold
 }
 
 .menu-bar-item {
@@ -18,6 +18,6 @@
 }
 
 .menu-bar-item-link-active {
-  border-bottom: solid 1px;
+  border-bottom: solid 2px;
   padding-bottom: 1px;
 }
