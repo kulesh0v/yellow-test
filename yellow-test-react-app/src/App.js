@@ -1,36 +1,52 @@
-import React from 'react';
+import { React, useState } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/header/Header';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 import LoginPage from './pages/login/LoginPage';
 import JogsPage from './pages/jogs/JogsPage';
 import InfoPage from './pages/info/InfoPage';
+import routes from "./routes";
+import {
+  Switch,
+  Route,
+  Redirect,
+  useHistory
+} from "react-router-dom";
+import { auth } from './api';
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('jog-tracker-token'));
+  let history = useHistory();
+
+  const onLogin = () => {
+    auth().then(res => {
+      localStorage.setItem('jog-tracker-token', res.data.access_token);
+      setIsAuthenticated(true);
+      history.push(routes.jogs);
+    });
+  }
+
   return (
-    <Router>
-      <Header />
+    <>
+      <Header isAuthenticated={isAuthenticated} />
+      {
+        !isAuthenticated && < Redirect to={{ pathname: routes.login }} />
+      }
       <Switch>
-        <Route path="/login">
-          <LoginPage />
+        <Route path={routes.login}>
+          <LoginPage onLogin={onLogin} />
         </Route>
       </Switch>
       <Switch>
-        <Route path="/jogs">
+        <Route path={routes.jogs}>
           <JogsPage />
         </Route>
       </Switch>
       <Switch>
-        <Route path="/info">
+        <Route path={routes.info}>
           <InfoPage />
         </Route>
       </Switch>
-    </Router>
+    </>
   );
 };
 

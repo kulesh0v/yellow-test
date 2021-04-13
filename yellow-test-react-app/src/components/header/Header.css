@@ -1,8 +1,8 @@
 .header {
-  width: 1440px;
-  margin: 0 0 207px;
+  width: 100%;
   padding: 30px 1256px 30px 37px;
   background-color: #7ed321;
+  display: flex;
 }
 
 .logo {

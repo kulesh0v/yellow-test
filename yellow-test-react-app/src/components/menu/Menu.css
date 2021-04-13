@@ -1,0 +1,23 @@
+.menu-bar {
+  display: inline-block;
+  margin: auto;
+  margin-right: 118px;
+  font-family: SFUIText
+}
+
+.menu-bar-item {
+  display: inline-block;
+  padding-left: 46px;
+}
+
+.menu-bar-item-link {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.menu-bar-item-link-active {
+  border-bottom: solid 1px;
+  padding-bottom: 1px;
+}
