@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import './Jog.css'
 import dateFormat from 'dateformat';
-
-
-export default function Jog({ date, distance, time }) {
+import { Link } from 'react-router-dom';
+import routes from '../../routes';
+export default function Jog({ date, distance, time, id }) {
 
   let formatedDate = new Date();
   formatedDate.setMilliseconds(date);
@@ -11,7 +11,9 @@ export default function Jog({ date, distance, time }) {
 
   return (
     <div className='jog-card'>
-      <img src='images/jog-icon.svg' alt='jog icon' />
+      <Link to={`${routes.jogEditor}/${id}`}>
+        <img src='/images/jog-icon.svg' alt='jog icon' />
+      </Link>
       <div className='jog-data-list'>
         <div className='jog-date jog-data'>
           <span className='jog-data-value'>{formatedDate}</span>
@@ -36,5 +38,6 @@ export default function Jog({ date, distance, time }) {
 Jog.propTypes = {
   date: PropTypes.number.isRequired,
   distance: PropTypes.number.isRequired,
-  time: PropTypes.number.isRequired
+  time: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 }

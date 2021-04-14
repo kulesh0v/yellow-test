@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from './components/header/Header';
 import LoginPage from './pages/login/LoginPage';
-import JogsPage from './pages/jogs/JogsPage';
+import JogsPage from './pages/jogsPage/JogsPage';
 import InfoPage from './pages/info/InfoPage';
 import routes from "./routes";
 import {
@@ -11,10 +11,12 @@ import {
   useHistory
 } from "react-router-dom";
 import { auth } from './api';
+import JogEditor from './pages/jogEditor/JogEditor';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('jog-tracker-token'));
   let history = useHistory();
+  const [jogs, setJogs] = useState([]);
 
   const onLogin = async () => {
     const res = await auth();
@@ -29,21 +31,29 @@ export default function App() {
       {
         !isAuthenticated && < Redirect to={{ pathname: routes.login }} />
       }
-      <Switch>
-        <Route path={routes.login}>
-          <LoginPage onLogin={onLogin} />
-        </Route>
-      </Switch>
-      <Switch>
-        <Route path={routes.jogs}>
-          <JogsPage />
-        </Route>
-      </Switch>
-      <Switch>
-        <Route path={routes.info}>
-          <InfoPage />
-        </Route>
-      </Switch>
+      <div className='container'>
+        <Switch>
+          <Route path={routes.login}>
+            <LoginPage onLogin={onLogin} />
+          </Route>
+          <Route path={routes.jogs}>
+            <JogsPage jogs={jogs} setJogs={setJogs} />
+          </Route>
+          <Route path={routes.info}>
+            <InfoPage />
+          </Route>
+          <Route path={routes.jogEditor} exact>
+            <JogEditor />
+          </Route>
+          <Route path={`${routes.jogEditor}/:id`}
+            component={(routeProps) => {
+              const jog = jogs.find(jog => jog.id === +routeProps.match.params.id);
+              console.log(routeProps, jog);
+              return <JogEditor {...jog} />
+            }}
+          />
+        </Switch>
+      </div>
     </>
   );
 };

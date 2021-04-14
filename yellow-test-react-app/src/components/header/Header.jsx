@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default function Header(props) {
   return (
     <header className='header'>
-      <img src='images/logo.svg' className="logo" alt="logo" />
+      <img src='/images/logo.svg' className="logo" alt="logo" />
       <Menu isAuthenticated={props.isAuthenticated} />
     </header>
   );

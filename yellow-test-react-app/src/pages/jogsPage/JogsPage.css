@@ -1,0 +1,9 @@
+.add-jog-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
