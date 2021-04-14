@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import routes from "../../routes";
+import routes from "../../constants/routes";
 import './Menu.css';
 import PropTypes from 'prop-types';
 
-export default function Menu({ isAuthenticated }) {
+export default function Menu({ isAuthenticated, filterIsActive, setFilterIsActive }) {
   if (!isAuthenticated) {
     return null;
   }
@@ -25,6 +25,12 @@ export default function Menu({ isAuthenticated }) {
           CONTACT US
       </span>
       </div>
+      <button className='filter-button' onClick={() => setFilterIsActive(!filterIsActive)}>
+        <img
+          src={filterIsActive ? '/images/filter-active.svg' : '/images/filter.svg'}
+          alt={filterIsActive ? 'active filter button' : 'filter button'}
+        />
+      </button>
     </div>
   )
 }

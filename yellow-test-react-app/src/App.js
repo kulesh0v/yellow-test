@@ -3,7 +3,7 @@ import Header from './components/header/Header';
 import LoginPage from './pages/login/LoginPage';
 import JogsPage from './pages/jogsPage/JogsPage';
 import InfoPage from './pages/info/InfoPage';
-import routes from "./routes";
+import routes from "./constants/routes";
 import {
   Switch,
   Route,
@@ -12,11 +12,15 @@ import {
 } from "react-router-dom";
 import { auth } from './api';
 import JogEditor from './pages/jogEditor/JogEditor';
+import Filter from './components/filter/Filter';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('jog-tracker-token'));
-  let history = useHistory();
+  const [filterIsActive, setFilterIsActive] = useState(false);
   const [jogs, setJogs] = useState([]);
+  const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
+  let history = useHistory();
 
   const onLogin = async () => {
     const res = await auth();
@@ -27,7 +31,20 @@ export default function App() {
 
   return (
     <>
-      <Header isAuthenticated={isAuthenticated} />
+      <Header
+        isAuthenticated={isAuthenticated}
+        setFilterIsActive={setFilterIsActive}
+        filterIsActive={filterIsActive}
+      />
+      {
+        filterIsActive &&
+        <Filter
+          dateFrom={dateFrom}
+          setDateFrom={setDateFrom}
+          dateTo={dateTo}
+          setDateTo={setDateTo}
+        />
+      }
       {
         !isAuthenticated && < Redirect to={{ pathname: routes.login }} />
       }
@@ -37,7 +54,12 @@ export default function App() {
             <LoginPage onLogin={onLogin} />
           </Route>
           <Route path={routes.jogs}>
-            <JogsPage jogs={jogs} setJogs={setJogs} />
+            <JogsPage
+              jogs={jogs}
+              setJogs={setJogs}
+              dateFrom={dateFrom}
+              dateTo={dateTo}
+            />
           </Route>
           <Route path={routes.info}>
             <InfoPage />
@@ -48,7 +70,6 @@ export default function App() {
           <Route path={`${routes.jogEditor}/:id`}
             component={(routeProps) => {
               const jog = jogs.find(jog => jog.id === +routeProps.match.params.id);
-              console.log(routeProps, jog);
               return <JogEditor {...jog} />
             }}
           />

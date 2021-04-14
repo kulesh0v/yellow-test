@@ -1,14 +1,14 @@
+import { memo } from 'react';
 import PropTypes from 'prop-types'
 import './Jog.css'
 import dateFormat from 'dateformat';
 import { Link } from 'react-router-dom';
-import routes from '../../routes';
-export default function Jog({ date, distance, time, id }) {
+import routes from '../../constants/routes';
+function Jog({ date, distance, time, id }) {
 
   let formatedDate = new Date();
   formatedDate.setMilliseconds(date);
   formatedDate = dateFormat(formatedDate, "dd.mm.yyyy");
-
   return (
     <div className='jog-card'>
       <Link to={`${routes.jogEditor}/${id}`}>
@@ -41,3 +41,5 @@ Jog.propTypes = {
   time: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
 }
+
+export default memo(Jog);

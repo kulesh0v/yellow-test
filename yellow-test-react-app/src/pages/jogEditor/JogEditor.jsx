@@ -3,19 +3,13 @@ import { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { createJog, updateJog } from '../../api';
 import dateFormat from 'dateformat';
+import { isoDateTimeFormat, dateServerFormat } from '../../constants/dateformats';
 import './JogEditor.css'
-
-const isoDateTimeFormat = "yyyy-mm-dd'T'HH:MM:ss";
-const dateServerFormat = 'yyyy-mm-dd HH:MM:ss';
-
-
 export default function JogEditor(props) {
   const [date, setDate] = useState(dateFormat(props.date || Date.now(), isoDateTimeFormat));
   const [distance, setDistance] = useState(props.distance || 0);
   const [time, setTime] = useState(props.time || 0);
   const history = useHistory();
-
-  console.log(props);
 
   const onSave = async () => {
     const formatedDate = dateFormat(date, dateServerFormat);
@@ -65,5 +59,5 @@ JogEditor.propTypes = {
   date: PropTypes.number,
   distance: PropTypes.number,
   time: PropTypes.number,
-  user_id: PropTypes.number,
+  user_id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }

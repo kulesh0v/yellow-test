@@ -1,15 +1,16 @@
 .menu-bar {
-  display: inline-block;
+  display: flex;
   margin: auto;
-  margin-right: 118px;
-  font-family: SFUIText-Bold
+  margin-right: 36px;
+  font-family: SFUIText-Bold;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu-bar-item {
   display: inline-block;
-  padding-left: 46px;
+  margin-left: 46px;
 }
-
 .menu-bar-item-link {
   font-size: 14px;
   font-weight: bold;
@@ -20,4 +21,16 @@
 .menu-bar-item-link-active {
   border-bottom: solid 2px;
   padding-bottom: 1px;
+}
+
+
+.filter-button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-right: 36px;
+  margin-left: 56px;
+  padding: 0;
+  width: 26px;
 }

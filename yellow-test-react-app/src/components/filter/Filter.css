@@ -1,0 +1,39 @@
+.filter {
+  height: 60px;
+  width: 100%;
+  background-color: #eaeaea;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter .filter-item:first-child {
+  margin-right: 45px;
+}
+
+.filter-item {
+  display: inline-block;
+}
+
+.filter-input {
+  width: 125px;
+  height: 31px;
+  border-radius: 11px;
+  border: 1px solid #979797;
+  outline: none;
+  padding: 0 12px;
+}
+
+.filter-label {
+  margin-right: 15px;
+  font-family: SFUIText-Regular;
+  font-size: 13px;
+  color: #979797;
+}
+
+@media (max-width: 800px) { 
+  .filter .filter-item:first-child {
+    margin-right: 35px;
+  }
+}
