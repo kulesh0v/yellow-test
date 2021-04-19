@@ -3,8 +3,12 @@ import { NavLink } from "react-router-dom";
 import routes from "../../constants/routes";
 import './MobileMenu.css';
 
-export function MobileMenu() {
+export function MobileMenu({ isAuthenticated }) {
   const [isOpened, setIsOpened] = useState(false);
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   return (
     <div className='mobile-menu'>
@@ -15,14 +19,18 @@ export function MobileMenu() {
         </button>
         <div className='mobile-menu-bar-items-list'>
           <div className="mobile-menu-bar-item">
-            <NavLink to={routes.jogs} className='mobile-menu-bar-item-link' activeClassName='mobile-menu-bar-item-link-active'>
+            <NavLink to={routes.jogs}
+              className='mobile-menu-bar-item-link'
+              activeClassName='mobile-menu-bar-item-link-active'
+              onClick={() => setIsOpened(false)}>
               JOGS
-          </NavLink>
+            </NavLink>
           </div>
           <div className="mobile-menu-bar-item">
-            <NavLink to={routes.info} className='mobile-menu-bar-item-link' activeClassName='mobile-menu-bar-item-link-active'>
+            <NavLink to={routes.info} className='mobile-menu-bar-item-link' activeClassName='mobile-menu-bar-item-link-active'
+              onClick={() => setIsOpened(false)}>
               INFO
-          </NavLink>
+            </NavLink>
           </div>
           <div className="mobile-menu-bar-item">
             <span className="mobile-menu-bar-item-link">

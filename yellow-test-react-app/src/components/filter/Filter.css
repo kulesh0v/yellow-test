@@ -15,7 +15,9 @@
 }
 
 .filter-item {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .filter-input {
@@ -36,10 +38,20 @@
 
 @media (max-width: 800px) { 
   .filter .filter-item:first-child {
-    margin-right: 35px;
+    margin-right: 0;
+  }
+
+  .filter-item {
+    flex-direction: column;
+  }
+
+  .filter-input {
+    padding: 0 6px;
   }
 
   .filter {
     top: 87px;
+    padding: 0 6px;
+    justify-content: space-around;
   }
 }

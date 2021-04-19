@@ -44,16 +44,20 @@ export default function JogsPage({ jogs, setJogs, dateTo, dateFrom }) {
   }, []);
 
   if (isLoaded) {
-    return 'Loading...';
+    return (<div className='loading'>Loading...</div>);
   }
 
-  if (!jogs && !jogs.length) {
+  if (!jogs?.length) {
     return (
-      <div>
-        <img src='/iamges/sad-rounded-square-emoticon.svg' alt='sad emoticon'></img>
-        <span>Nothing is there</span>
-        <button>Create your jog first</button>
-      </div>
+      <div className='message-block'>
+        <img src='images/sad-rounded-square-emoticon.svg' alt='sad emoticon' className='sad-emoticon-icon'></img>
+        <div className='message-text'>Nothing is there</div>
+        <button className='create-first-jog-button'>
+          <Link to={routes.jogEditor} className='create-first-jog-button-link'>
+            Create your jog first
+          </Link>
+        </button>
+      </div >
     );
   }
 

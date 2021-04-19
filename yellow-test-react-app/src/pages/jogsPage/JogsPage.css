@@ -2,10 +2,11 @@
   position: fixed;
   bottom: 40px;
   right: 40px;
-  background: none;
+  background: #fff;
   border: none;
   outline: none;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 .jogs-list {
@@ -15,7 +16,55 @@
   padding-inline-start: 0px;
 }
 
+.message-block {
+  margin-top: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.message-text {
+  font-family: SFUIText-Regular;
+  font-size: 24px;
+  color: #b0b0b0;
+  margin-top: 47px;
+}
+
+.create-first-jog-button {
+  margin-top: 141px;
+  padding: 20px 34px;
+  outline: none;
+  background-color: white;
+  border: solid 3px #e990f9;
+  font-family: SFUIText-Bold;
+  color: #e990f9;
+  border-radius: 36px;
+}
+
+.create-first-jog-button-link {
+  color: #e990f9;
+  text-decoration: none;
+}
+
+.loading {
+  margin-top: 44px;
+}
+
 @media (max-width: 800px) {
+  .sad-emoticon-icon {
+    width: 85px;
+    height: 85px;
+  }
+
+  .message-block {
+    margin-top: 140px;
+  }
+
+  .message-text {
+    margin-top: 30px;
+  }
+
   .jogs-list {
     margin-top: 0px;
   }
@@ -23,7 +72,6 @@
   .add-jog-button {
     bottom: 30px;
     right: 30px;
-    height: 47px;
-    width: 47px;
+    z-index: 0;
   }
 }

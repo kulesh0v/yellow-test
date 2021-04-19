@@ -13,6 +13,7 @@ import {
 import { auth } from './api';
 import JogEditor from './pages/jogEditor/JogEditor';
 import Filter from './components/filter/Filter';
+import PrivateRoute from './components/private-route/PrivateRoute';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('jog-tracker-token'));
@@ -45,34 +46,35 @@ export default function App() {
           setDateTo={setDateTo}
         />
       }
-      {
-        !isAuthenticated && < Redirect to={{ pathname: routes.login }} />
-      }
       <div className='container'>
         <Switch>
           <Route path={routes.login}>
-            <LoginPage onLogin={onLogin} />
+            <LoginPage onLogin={onLogin} exact={true} />
           </Route>
-          <Route path={routes.jogs}>
+          <PrivateRoute path={routes.jogs} exact={true}>
             <JogsPage
               jogs={jogs}
               setJogs={setJogs}
               dateFrom={dateFrom}
               dateTo={dateTo}
             />
-          </Route>
-          <Route path={routes.info}>
+          </PrivateRoute>
+          <PrivateRoute path={routes.info} exact={true}>
             <InfoPage />
-          </Route>
-          <Route path={routes.jogEditor} exact>
+          </PrivateRoute>
+          <PrivateRoute path={routes.jogEditor} exact={true}>
             <JogEditor />
-          </Route>
-          <Route path={`${routes.jogEditor}/:id`}
+          </PrivateRoute>
+          <PrivateRoute path={`${routes.jogEditor}/:id`}
             component={(routeProps) => {
               const jog = jogs.find(jog => jog.id === +routeProps.match.params.id);
               return <JogEditor {...jog} />
-            }}
+            }
+            }
           />
+          <Route path='*'>
+            <Redirect to={routes.jogs} />
+          </Route>
         </Switch>
       </div>
     </>

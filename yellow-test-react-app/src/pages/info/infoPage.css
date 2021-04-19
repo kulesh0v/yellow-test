@@ -18,6 +18,10 @@
   line-height: 24px;
 }
 
+.info-block .info-text:nth-child(2n + 1) {
+  margin-top: 50px;
+}
+
 @media (max-width: 800px) {
   .info-block {
     margin-top: 24px;

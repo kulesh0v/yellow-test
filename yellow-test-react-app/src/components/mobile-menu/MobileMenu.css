@@ -5,8 +5,6 @@
   top: 0px;
   right: 0px;
   background-color: white;
-  z-index: 1000;
-  color: black;
 }
 
 .mobile-menu-logo {
@@ -56,6 +54,7 @@
     font-family: SFUIText-Bold;
     font-size: 25px;
     text-decoration: none;
+    color: black;
   }
   
   .mobile-menu-bar-item-link-active {

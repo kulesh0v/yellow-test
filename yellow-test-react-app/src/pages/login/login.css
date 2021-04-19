@@ -1,7 +1,7 @@
 .login-modal {
   width: 503px;
   height: 379px;
-  margin-top: 323px;
+  margin-top: 207px;
   border-radius: 44px;
   background-color: #e990f9;
   display: flex;
@@ -18,17 +18,36 @@
   font-size: 18px;
   font-family: SFUIText-Bold;
   background: 0;
+  outline: none;
 }
 
 .bear-face {
   width: 160px;
   height: 150px;
   margin-top: 77px;
-  object-fit: contain;
+}
+
+.bear-face-mobile {
+  display: none;
 }
 
 @media (max-width: 800px) {
+  .bear-face {
+    display: none;
+  }
+
+  .bear-face-mobile {
+    display: block;
+  }
+
   .login-modal {
-    max-width: 95%;
+    background-color: white;
+    margin-top: 141px;
+  }
+
+  .login-button {
+    color: #e990f9;
+    border-color: #e990f9;
+    margin: 103px 0px;
   }
 }

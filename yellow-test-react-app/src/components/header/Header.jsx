@@ -12,7 +12,7 @@ export default function Header({ isAuthenticated, filterIsActive, setFilterIsAct
         filterIsActive={filterIsActive}
         setFilterIsActive={setFilterIsActive}
       />
-      <MobileMenu />
+      <MobileMenu isAuthenticated={isAuthenticated} />
     </header>
   );
 }
