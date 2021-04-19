@@ -8,7 +8,8 @@ import {
   Switch,
   Route,
   Redirect,
-  useHistory
+  useHistory,
+  useLocation
 } from "react-router-dom";
 import { auth } from './api';
 import JogEditor from './pages/jogEditor/JogEditor';
@@ -22,6 +23,7 @@ export default function App() {
   const [dateFrom, setDateFrom] = useState('');
   const [dateTo, setDateTo] = useState('');
   let history = useHistory();
+  const location = useLocation();
 
   const onLogin = async () => {
     const res = await auth();
@@ -38,7 +40,7 @@ export default function App() {
         filterIsActive={filterIsActive}
       />
       {
-        filterIsActive &&
+        filterIsActive && location.pathname !== routes.info &&
         <Filter
           dateFrom={dateFrom}
           setDateFrom={setDateFrom}
