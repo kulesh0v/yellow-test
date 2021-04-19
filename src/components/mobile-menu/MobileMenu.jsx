@@ -15,7 +15,7 @@ export function MobileMenu({ isAuthenticated }) {
       <div className='mobile-menu-modal' style={{ display: isOpened ? 'block' : 'none' }}>
         <img className='mobile-menu-logo' src='/images/logo.png' alt='logo' />
         <button className='mobile-menu-close-button' onClick={() => setIsOpened(false)}>
-          <img src='/images/cancel.svg' />
+          <img src='/images/cancel.svg' alt='cancel' />
         </button>
         <div className='mobile-menu-bar-items-list'>
           <div className="mobile-menu-bar-item">

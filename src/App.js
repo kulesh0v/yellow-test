@@ -26,10 +26,14 @@ export default function App() {
   const location = useLocation();
 
   const onLogin = async () => {
-    const res = await auth();
-    localStorage.setItem('jog-tracker-token', res.data.response.access_token);
-    setIsAuthenticated(true);
-    history.push(routes.jogs);
+    try {
+      const res = await auth();
+      localStorage.setItem('jog-tracker-token', res.data.response.access_token);
+      setIsAuthenticated(true);
+      history.push(routes.jogs);
+    } catch (e) {
+      alert(e.response.data.error_message);
+    }
   }
 
   return (
