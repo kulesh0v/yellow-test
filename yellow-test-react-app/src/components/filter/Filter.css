@@ -6,6 +6,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  position: sticky;
+  top: 116px
 }
 
 .filter .filter-item:first-child {
@@ -35,5 +37,9 @@
 @media (max-width: 800px) { 
   .filter .filter-item:first-child {
     margin-right: 35px;
+  }
+
+  .filter {
+    top: 87px;
   }
 }

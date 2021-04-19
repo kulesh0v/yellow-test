@@ -34,3 +34,24 @@
   padding: 0;
   width: 26px;
 }
+
+.menu-button {
+  background: none;
+  border: none;
+  outline: none;
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .menu-bar-items-list {
+    display: none;
+  }
+  .menu-bar {
+    margin: auto;
+    margin-right: 45px;
+  }
+
+  .filter-button {
+    margin: 0;
+  }
+}

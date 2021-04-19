@@ -14,4 +14,4 @@ export default function LoginPage({ onLogin }) {
 
 LoginPage.propTypes = {
   onLogin: PropTypes.func.isRequired,
-} 
+}

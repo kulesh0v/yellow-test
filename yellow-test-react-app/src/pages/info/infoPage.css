@@ -1,0 +1,25 @@
+.info-block {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 85px 25px;
+  max-width: 614px;
+}
+
+.info-title {
+  font-size: 36px;
+  font-family: SFUIText-Bold;
+  color: #7ed321;
+}
+
+.info-text {
+  font-family: SFUIText-Regular;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+@media (max-width: 800px) {
+  .info-block {
+    margin-top: 24px;
+  }
+}

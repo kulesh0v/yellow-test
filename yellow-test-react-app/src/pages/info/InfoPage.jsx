@@ -1,8 +1,10 @@
+import './infoPage.css'
+
 export default function InfoPage() {
   return (
-    <>
-      <h3>Info</h3>
-      <div>
+    <div className='info-block'>
+      <h3 className='info-title'>INFO</h3>
+      <div className='info-text'>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
         when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -10,13 +12,16 @@ export default function InfoPage() {
         remaining essentially unchanged. It was popularised in the 1960s with the release of
         Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
         publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <br />
+        <br />
+        <br />
       </div>
-      <div>
+      <div className='info-text'>
         It is a long established fact that a reader will be distracted by
         the readable content of a page when looking at its layout.
         The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
         as opposed to using 'Content here, content here', making it look like readable English.
       </div>
-    </>
+    </div>
   )
 }

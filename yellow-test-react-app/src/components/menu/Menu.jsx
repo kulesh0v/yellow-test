@@ -10,20 +10,22 @@ export default function Menu({ isAuthenticated, filterIsActive, setFilterIsActiv
 
   return (
     <div className='menu-bar'>
-      <div className="menu-bar-item">
-        <NavLink to={routes.jogs} className='menu-bar-item-link' activeClassName='menu-bar-item-link-active'>
-          JOGS
-      </NavLink>
-      </div>
-      <div className="menu-bar-item">
-        <NavLink to={routes.info} className='menu-bar-item-link' activeClassName='menu-bar-item-link-active'>
-          INFO
-      </NavLink>
-      </div>
-      <div className="menu-bar-item">
-        <span className="menu-bar-item-link">
-          CONTACT US
-      </span>
+      <div className='menu-bar-items-list'>
+        <div className="menu-bar-item">
+          <NavLink to={routes.jogs} className='menu-bar-item-link' activeClassName='menu-bar-item-link-active'>
+            JOGS
+          </NavLink>
+        </div>
+        <div className="menu-bar-item">
+          <NavLink to={routes.info} className='menu-bar-item-link' activeClassName='menu-bar-item-link-active'>
+            INFO
+          </NavLink>
+        </div>
+        <div className="menu-bar-item">
+          <span className="menu-bar-item-link">
+            CONTACT US
+          </span>
+        </div>
       </div>
       <button className='filter-button' onClick={() => setFilterIsActive(!filterIsActive)}>
         <img
