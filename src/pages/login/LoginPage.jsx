@@ -1,7 +1,7 @@
 import { Redirect } from "react-router";
 import PropTypes from 'prop-types';
 import routes from '../../constants/routes';
-import './login.css';
+import './LoginPage.css';
 
 export default function LoginPage({ onLogin }) {
   if (!localStorage.getItem('jog-tracker-token')) {

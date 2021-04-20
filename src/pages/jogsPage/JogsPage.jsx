@@ -10,9 +10,13 @@ export default function JogsPage({ jogs, setJogs, dateTo, dateFrom }) {
   const [isLoaded, setIsLoaded] = useState(true);
 
   const loadJogs = async () => {
-    const res = await getJogs();
-    setJogs(res.data.response.jogs)
-    setIsLoaded(false);
+    try {
+      const res = await getJogs();
+      setJogs(res.data.response.jogs)
+      setIsLoaded(false);
+    } catch (e) {
+      alert(e.response.data.error_message);
+    }
   }
 
   const jogsDateCompare = (jog) => {
@@ -43,11 +47,13 @@ export default function JogsPage({ jogs, setJogs, dateTo, dateFrom }) {
     loadJogs()
   }, []);
 
+  const filtredJogs = jogs.filter(jogsDateCompare);
+
   if (isLoaded) {
     return (<div className='loading'>Loading...</div>);
   }
 
-  if (!jogs?.length) {
+  if (!filtredJogs?.length) {
     return (
       <div className='message-block'>
         <img src='images/sad-rounded-square-emoticon.svg' alt='sad emoticon' className='sad-emoticon-icon'></img>
@@ -65,7 +71,7 @@ export default function JogsPage({ jogs, setJogs, dateTo, dateFrom }) {
     <>
       <ul className='jogs-list'>
         {
-          jogs.filter(jogsDateCompare).map(jog =>
+          filtredJogs.map(jog =>
             <li key={jog.id}>
               <Jog date={jog.date} distance={jog.distance} time={jog.time} id={jog.id} />
             </li>

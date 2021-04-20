@@ -13,15 +13,19 @@ export default function JogEditor(props) {
 
   const onSave = async () => {
     const formatedDate = dateFormat(date, dateServerFormat);
-    if (props.id) {
-      const { id, user_id } = props;
-      const res = await updateJog({ date: formatedDate, distance, time, id, user_id });
-      console.log(res.data)
-    } else {
-      const res = await createJog({ date: formatedDate, distance, time });
-      console.log(res.data)
+    try {
+      if (props.id) {
+        const { id, user_id } = props;
+        await updateJog({ date: formatedDate, distance, time, id, user_id });
+        alert('Success!');
+      } else {
+        await createJog({ date: formatedDate, distance, time });
+        alert('Success!');
+      }
+      goBack();
+    } catch (e) {
+      alert(e.response.data.error_message);
     }
-    goBack();
   }
 
   const onChangeDate = (e) => {
